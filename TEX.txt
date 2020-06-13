@@ -1,0 +1,215 @@
+\documentclass[12pt]{report}
+\usepackage{graphicx}
+\usepackage[a4paper,%
+            left=1.5in,right=1in,top=1.5in,bottom=1in]{geometry}
+\usepackage{geometry}
+\usepackage{ragged2e}
+\usepackage{tikz}
+\usepackage{mathptmx}
+\usetikzlibrary{calc}
+\renewcommand{\baselinestretch}{1.5}
+
+\begin{document}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+\begin{titlepage}
+    \begin{tikzpicture}[remember picture, overlay]
+      \draw[line width = 1pt] ($(current page.north west) + (4em,-4em)$) rectangle ($(current page.south east) + (-4em,4em)$);
+    \end{tikzpicture}
+
+    \centering
+    \vspace{0.5em}
+    {\Huge \textbf{PREDICTING GENUINE DISASTER TWEETS}}\\
+    \vspace{3em}
+    {\LARGE Professional Practice/Seminar (IT890) Project Report Submitted in partial fulfilment of the requirements for the degree of}\\
+    \vspace{1.5em}
+    {\LARGE \textbf{MASTER OF TECHNOLOGY}}\\
+    \vspace{1.5em}
+    {\LARGE \textbf{in}}\\
+    \vspace{1.5em}
+    {\LARGE \textbf{INFORMATION TECHNOLOGY}}\\
+    \vspace{1.5em}
+    {\LARGE \bfseries by}\\
+    \vspace{2em}
+    {\Large \emph{\textbf{PRAJWAL M P (192508IT015)}}}\\
+    \vspace{4em}
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics{nitk-logo.png}
+    \end{figure}
+    \vspace{2em}
+    {\Large \bfseries Department of Information Technology}\\
+    \vspace{0.5em}
+    {\Large \bfseries National Institute of Technology Karnataka, Surathkal.}\\
+    \vspace{0.5em}
+    {\Large \bfseries April,2020}
+\end{titlepage}
+\begin{titlepage}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\begin{tikzpicture}[remember picture, overlay]
+      \draw[line width = 1pt] ($(current page.north west) + (4em,-4em)$) rectangle ($(current page.south east) + (-4em,4em)$);
+    \end{tikzpicture}
+
+    \centering
+    \vspace{0.5em}
+    {\Huge \textbf{D E C L A R A T I O N}}\\
+    \justifying
+    \vspace{3em}
+    {{I hereby \textit{declare that the Professional Practice/Seminar (IT890) Project Work Report} of the M.Tech.(IT) entitled Predicting Genuine Disaster Tweets which is being submitted to the National Institute of Technology Karnataka Surathkal, in partial fulfilment of the requirements for the award of the Degree of Master of Technology in the department of Information Technology, is a \textbf{bonafide report of the work carried out by me.} The material contained in this project report has not been submitted to any University or Institution for the award of any degree.}}
+    
+    \vspace{3em}
+    \hspace{15em}{PRAJWAL M P 192508IT015}
+    
+    \hspace{15em}
+    \vspace{3em}
+    {Signature of the Student}
+    
+    \hspace{15em}
+    \vspace{3em}
+    {Department of Information Technology}
+    
+    \vspace{1em}
+    {Place : NITK, SURATHKAL}
+    
+    \vspace{1em}
+    {Date : }
+\end{titlepage}
+
+\begin{titlepage}
+\newgeometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\begin{tikzpicture}[remember picture, overlay]
+      \draw[line width = 1pt] ($(current page.north west) + (4em,-4em)$) rectangle ($(current page.south east) + (-4em,4em)$);
+    \end{tikzpicture}
+
+    \centering
+    \vspace{0.5em}
+    {\Huge \textbf{C E R T I F I C A T E}}\\
+    \justifying
+    \vspace{3em}
+    {{This is to \textit{certify} that the Professional Practice/Seminar (IT890) Project Work Report entitled Predicting Genuine Disaster Tweets which is being submitted by Prajwal M P (Register Number: 192508IT015) as the record of the work carried out by him, is \textit{accepted as the Professional Practice/Seminar (IT890) Project Work Report submission}in partial fulfilment of the requirements for the award of degree of Master of Technology in the Department of Information Technology.}}
+    
+    \vspace{3em}
+    \hspace{15em}{Mrs Manoranjitham M}
+    \vspace{3em}
+    
+    \hspace{15em}
+    \vspace{3em}
+    {Signature of the Examiner with Date }
+    
+    
+    \vspace{3em}
+    \hspace{15em}{Dr Soumya Kamath}
+    \vspace{3em}
+    
+    \hspace{15em}
+    \vspace{3em}
+    {Signature of the Guide with Date }
+\end{titlepage}
+\pagenumbering{roman}
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\section*{Abstract}
+
+\newpage
+\newgeometry{left=1in,right=1.5in,top=1.5in,bottom=1in}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\chapter{Introduction}
+\section{Motivation}
+Twitter has become an important communication channel in times of emergency. The ubiquitousness of smartphones enables people to announce an emergency they’re observing in real-time. Because of this, more agencies are interested in programatically monitoring Twitter (i.e. disaster relief organizations and news agencies). But, it’s not always clear whether a person’s words are actually announcing a disaster. The aim is to predict which Tweets are about real disasters and which one’s aren’t.
+\newpage
+
+
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\chapter{Literature Survey}
+\section{Outcome of Literature Survey}
+\par{[1] M. Rajdev and K. Lee, "Fake and Spam Messages: Detecting Misinformation
+During Natural Disasters on Social Media," 2015 IEEE/WIC/ACM International
+Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT),
+Singapore, 2015, pp. 17-20.
+They do a case study on what the intention and profile of these fake message senders
+could be. They use multiple approaches, flat and hierarchical. In flat approach they classify
+based on Random Tree classifier using 10 fold validation. In hierarchical approach they do
+the flat approach followed by another round of classification on category of fake like spam
+etc}
+\par{[2] S. Helmstetter and H. Paulheim, "Weakly Supervised Learning for Fake News
+Detection on Twitter," 2018 IEEE/ACM International Conference on Advances in
+Social Networks Analysis and Mining (ASONAM), Barcelona, 2018, pp. 274-277.
+They use a weakly supervised learning with SVM, neural network etc as learning
+methods. They use source data along with data in some cases to classify the tweets.
+Results show a F1 score of 0.9}
+\newpage
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+
+\par{[3] Kai Shu, Amy Sliva, Suhang Wang, Jiliang Tang, and Huan Liu. 2017. Fake News
+Detection on Social Media: A Data Mining Perspective. SIGKDD Explor. Newsl. 19,
+1 (September 2017), 22–36.
+They conduct a survey on existing algorithms for detecting spam or fake news on
+social media from data mining perspective. They describe the various types datasets and
+metrics that can be used to measure the efficiency of these algorithms.}
+\par{[4] Natali Ruchansky, Sungyong Seo, and Yan Liu. 2017. CSI: A Hybrid Deep Model
+for Fake News Detection. In Proceedings of the 2017 ACM on Conference on
+Information and Knowledge Management (CIKM ’17). Association for Computing
+Machinery, New York, NY, USA, 797–806.
+They propose the use of deep learning model such as recurrent neural networks for
+detecting fake news.They try to find a general way to solve the fake news issue instead of
+site specific or format specific ones that exist.}
+\newpage
+
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\section{Problem Statement}
+During disasters many fake tweets are sent to create a panic in the
+minds of people. Identifying these news/tweets and removing them
+before they spread is a necessity to maintain proper order in society.
+
+\subsection{Objectives of the Project}
+The aim is to predict which Tweets are about real disasters and
+which one’s aren’t. The dataset is obtained from kaggle competition.
+We are given a set of labelled tweets and we have to do a binary
+classification.
+\newpage
+
+
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\chapter{Methodology}
+\newpage
+
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\chapter{Experimental Results and Analysis}
+\newpage
+
+\newgeometry{left=1.5in,right=1in,top=1.5in,bottom=1in}
+\chapter{Conclusions and Future Work}
+Both supervised and unsupervised models seem to perform well but are not better
+than many other models and methods used in the kaggle competition.
+As we proceed i will implement a ensemble of these methods, an ensemble of
+ensembles, some other methods like RNN, adaboost will be tried out. So that it
+becomes a comprehensive survey of algorithms that can be used to solve these
+kind of problems.
+\newpage
+
+\begin{thebibliography}{1}
+\addcontentsline{toc}{section}{References}
+    
+\bibitem{1} M. Rajdev and K. Lee, "Fake and Spam Messages: Detecting Misinformation
+During Natural Disasters on Social Media," 2015 IEEE/WIC/ACM International
+Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT),
+Singapore, 2015, pp. 17-20.
+
+\bibitem{2} S. Helmstetter and H. Paulheim, "Weakly Supervised Learning for Fake News
+Detection on Twitter," 2018 IEEE/ACM International Conference on Advances in
+Social Networks Analysis and Mining (ASONAM), Barcelona, 2018, pp. 274-277.
+
+\bibitem{3}  Kai Shu, Amy Sliva, Suhang Wang, Jiliang Tang, and Huan Liu. 2017. Fake News
+Detection on Social Media: A Data Mining Perspective. SIGKDD Explor. Newsl. 19,
+1 (September 2017), 22–36.
+
+\bibitem{4} Natali Ruchansky, Sungyong Seo, and Yan Liu. 2017. CSI: A Hybrid Deep Model
+for Fake News Detection. In Proceedings of the 2017 ACM on Conference on
+Information and Knowledge Management (CIKM ’17). Association for Computing
+Machinery, New York, NY, USA, 797–806.
+
+\end{thebibliography}
+\end{document}
